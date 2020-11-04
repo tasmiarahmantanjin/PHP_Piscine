@@ -1,0 +1,49 @@
+
+body{
+	background-color:rgb(244, 237, 237);
+	margin-left: 350px;
+	margin-top: 3px;
+}
+
+*{
+	margin: 0px;
+	padding: 0px;
+}
+#container ul{
+	list-style: none;
+}
+
+#container ul li{
+	background-color: rgb(221, 222, 244);
+	width: 200px;
+	border: 1px solid white;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	float: left;
+	font-size: 24px;
+	position: relative;
+	font-style: Bold;
+}
+
+#container ul li:hover{
+	background-color: lightcoral;
+}
+
+#container ul ul{
+	display: none;
+}
+
+#container ul li:hover > ul{
+	display: block;
+}
+
+#container ul ul ul{
+	margin-left: 200px;
+	top: 0px;
+	position: absolute;
+}
+
+a:link{
+	text-decoration:none;
+}
