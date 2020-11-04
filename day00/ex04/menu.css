@@ -1,13 +1,16 @@
 
 body{
 	background-color:rgb(244, 237, 237);
-	margin-left: 350px;
-	margin-top: 3px;
 }
 
 *{
 	margin: 0px;
 	padding: 0px;
+}
+
+#container{
+	width: 800px;
+	margin:0 auto;
 }
 #container ul{
 	list-style: none;
