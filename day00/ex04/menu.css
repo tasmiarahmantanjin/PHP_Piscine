@@ -11,13 +11,15 @@ body{
 #container{
 	width: 800px;
 	margin:0 auto;
+	margin-top: 2px;
 }
+
 #container ul{
 	list-style: none;
 }
 
 #container ul li{
-	background-color: rgb(221, 222, 244);
+	background-color: rgb(238, 162, 162);
 	width: 200px;
 	border: 1px solid white;
 	height: 50px;
