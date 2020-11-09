@@ -1,6 +1,5 @@
 #!/usr/bin/php
 <?php
-
 	function cmp($a, $b)
 	{
 		$line = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789!\"
@@ -8,17 +7,17 @@
 		$i = 0;
 		while ($i < strlen($a) || $i < strlen($b))
 		{
-			$a_i = strpos($line, $a[$i]);
-			$b_i = strpos($line, $b[$i]);
+			$a_i = stripos($line, $a[$i]);
+			$b_i = stripos($line, $b[$i]);
 			if ($a_i > $b_i)
 				return (1);
 			else if ($a_i < $b_i)
 				return (-1);
-			else 
+			else
 				$i++;
 		}
 	}
-		
+
 	$array = array();
 	if ($argc > 1)
 	{
