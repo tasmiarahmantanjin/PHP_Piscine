@@ -1,9 +1,9 @@
 #!/usr/bin/php
-<?php
-		if ($argc > 1)
-		{
-			$str = trim($argv[1]);
-			$str = preg_replace('/\s+/', ' ', trim($str));
-			echo $str ."\n";
-		}
+<?PHP
+if ($argc == 2)
+{
+	$str = array_filter(explode(' ', $argv[1]));
+	$res = implode(" ", $str);
+	echo $res . "\n";
+}
 ?>
