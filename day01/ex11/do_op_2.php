@@ -1,75 +1,39 @@
 #!/usr/bin/php
 <?php
-
-function check_whitespace($str)
+if ($argc != 2)
 {
-	return(($str) || is_numeric($str));
-}
-
-if ($argc == 2)
-{
-	if (strpos($argv[1], '+'))
-		$op = '+';
-	else if (strpos($argv[1], '*'))
-		$op = '*';
-	else if (strpos($argv[1], '-'))
-		$op = '-';
-	else if (strpos($argv[1], '/'))
-		$op = '/';
-	else if (strpos($argv[1], '%'))
-		$op = '%';
-	else
-	{
-		print ("Syntax Error\n");
-		return ;
-	}
-	$arr = explode($op, $argv[1]);
-	if (count($arr) != 2)
-	{
-		print ("Syntax Error\n");
-		return ;
-	}
-	if (!is_numeric($num1 = trim($arr[0])))
-	{
-		print ("Syntax Error\n");
-		return ;
-	}
-	if (!is_numeric($num2 = trim($arr[1])))
-	{
-		print ("Syntax Error\n");
-		return ;
-	}
-	if ($op == "+")
-		print ($num1 + $num2);
-	else if ($op == "-")
-		print ($num1 - $num2);
-	else if ($op == "*")
-		print ($num1 * $num2);
-	else if ($op == "/")
-	{
-		if ($num2 == 0)
-		{
-			print ("Syntax Error\n");
-			return ;
-		}
-		print ($num1 / $num2);
-	}
-	else if ($op == "%")
-	{
-		if ($num2 == 0)
-		{
-			print ("Syntax Error\n");
-			return ;
-		}
-		print ($num1 % $num2);
-	}
-	else
-	{
-		print ("Syntax Error\n");
-		return ;
-	}
-	print("\n");
+	echo "Incorrect Parameters\n";
 }
 else
-	print("Incorrect Parameters\n")
-?>
+{
+	$op = explode(";", "+;-;*;/;%");
+	$test = sscanf($argv[1], "%d %c %d %s");
+	if ((is_numeric($test[0])) && ($test[1]) && (is_numeric($test[2])) && (!$test[3]))
+	{
+		if (($test[2] == 0) && ($test[1] == '%' || $test[1] == '/'))
+		{
+			echo "denominator is 0\n";
+			exit (1);
+		}
+		if($test[1] == '*')
+			$result = $test[0] * $test[2];
+		else if($test[1] == '-')
+			$result = $test[0] - $test[2];
+		else if($test[1] == '/')
+			$result = $test[0] / $test[2];
+		else if($test[1] == '%')
+			$result = $test[0] % $test[2];
+		else if($test[1] == '+')
+			$result = $test[0] + $test[2];
+		else {
+			echo "Syntax Error\n";
+			exit (1);
+		}
+		echo $result;
+		echo "\n";
+	}
+	else
+	{
+		echo "Syntax Error\n";
+	}
+}
