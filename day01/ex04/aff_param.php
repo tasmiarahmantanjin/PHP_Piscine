@@ -3,12 +3,11 @@
 
 if ($argc > 1)
 {
-	$count = 1;
-	while ($count < $argc)
+	$i = 1;
+	while ($i < $argc)
 	{
-		print($argv[$count]."\n");
-		$count++;
+		print($argv[$i]."\n");
+		$i++;
 	}
 }
-
 ?>
