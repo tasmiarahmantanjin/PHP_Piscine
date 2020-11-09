@@ -1,17 +1,11 @@
 #!/usr/bin/php
-<?php
 
-function check_whitespace($str)
-{
-	return(($str));
-}
-
+<?PHP
 function ft_split($str)
 {
-	$arr = explode(" ", $str);
-	$arr = array_filter($arr, "check_whitespace");
-	sort($arr);
-	return($arr);
+	$ret = array_filter(explode(' ', $str));
+	sort($ret);
+	return $ret;
 }
 
 ?>
