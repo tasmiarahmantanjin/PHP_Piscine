@@ -8,5 +8,4 @@ if ($argc > 1)
 	if ($str)
 		echo "$str" . "\n";
 }
-
 ?>
