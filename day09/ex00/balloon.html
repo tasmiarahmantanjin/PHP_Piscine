@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+	<title>Javasript</title>
+	<style>
+		#changecolor {
+			height: 200px;
+			width: 200px;
+			background-color: red;
+			border-radius: 50%;
+			margin: auto;
+			margin-top: 450px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="changecolor"></div>
+	<script>
+	{
+		const colors = ["red","green","blue"]
+		var i = 0;
+		var col = document.getElementById("changecolor");
+		ballonHeight = col.clientHeight;
+		ballonWidth = col.clientWidth;
+
+/*-------------------------Event click starts here-----------------------------*/
+
+		col.addEventListener("click", function changeColor()
+		{
+			if (col.clientHeight < 420)
+			{
+				ballonHeight += 10;
+				ballonWidth +=10;
+			}
+			else
+			{
+				ballonHeight = 200;
+				ballonWidth = 200;
+			}
+			col.style.height = ballonHeight + 'px';
+			col.style.width = ballonWidth + 'px';
+			i++;
+			if(i > 2)
+				i = 0;
+			col.style.backgroundColor = colors[i];
+		});
+
+/*-------------------------Event mouseleave starts here-----------------------------*/
+
+		col.addEventListener("mouseleave", function changeColor()
+		{
+			i--;
+			// console.log(i);
+			if (i == -1)
+				i = 2;
+
+			if (col.clientHeight > 200)
+			{
+				ballonHeight -= 5;
+				ballonWidth -=5;
+			}
+			else
+			{
+				ballonHeight = 200;
+				ballonWidth = 200;
+			}
+			// console.log(i);
+			col.style.height = ballonHeight + 'px';
+			col.style.width = ballonWidth + 'px';
+			col.style.backgroundColor = colors[i];
+
+			// console.log(ballonHeight);
+			// console.log(ballonWidth);
+		});
+
+	}
+	</script>
+</body>
+</html>
