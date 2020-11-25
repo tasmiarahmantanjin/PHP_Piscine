@@ -16,44 +16,46 @@
 <body>
 	<div id="changecolor"></div>
 	<script>
-	{
 		const colors = ["red","green","blue"]
 		var i = 0;
 		var col = document.getElementById("changecolor");
 		ballonHeight = col.clientHeight;
 		ballonWidth = col.clientWidth;
+		var click = false;
 
 /*-------------------------Event click starts here-----------------------------*/
 
-		col.addEventListener("click", function changeColor()
+	col.addEventListener("click", function changeColor()
+	{
+		if (col.clientHeight < 420)
 		{
-			if (col.clientHeight < 420)
-			{
-				ballonHeight += 10;
-				ballonWidth +=10;
-			}
-			else
-			{
-				ballonHeight = 200;
-				ballonWidth = 200;
-			}
-			col.style.height = ballonHeight + 'px';
-			col.style.width = ballonWidth + 'px';
-			i++;
-			if(i > 2)
-				i = 0;
-			col.style.backgroundColor = colors[i];
-		});
+			ballonHeight += 10;
+			ballonWidth +=10;
+		}
+		else
+		{
+			ballonHeight = 200;
+			ballonWidth = 200;
+		}
+		col.style.height = ballonHeight + 'px';
+		col.style.width = ballonWidth + 'px';
+		i++;
+		if(i > 2)
+			i = 0;
+		col.style.backgroundColor = colors[i];
+		click = true;
+	});
 
 /*-------------------------Event mouseleave starts here-----------------------------*/
 
-		col.addEventListener("mouseleave", function changeColor()
+	col.addEventListener("mouseleave", function changeColor()
+	{
+		if (click == false)
 		{
 			i--;
 			// console.log(i);
 			if (i == -1)
-				i = 2;
-
+				i = 2
 			if (col.clientHeight > 200)
 			{
 				ballonHeight -= 5;
@@ -68,12 +70,11 @@
 			col.style.height = ballonHeight + 'px';
 			col.style.width = ballonWidth + 'px';
 			col.style.backgroundColor = colors[i];
-
 			// console.log(ballonHeight);
 			// console.log(ballonWidth);
-		});
-
 	}
+	click = false;
+	});
 	</script>
 </body>
 </html>
