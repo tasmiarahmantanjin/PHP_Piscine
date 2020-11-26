@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Calculator jQuary</title>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<style>
+		#calculator{
+			margin: 30px 500px;
+		}
+	</style>
+</head>
+
+<!-- HTML BODY -->
+
+<body>
+<!-- <form id="calculator" name="calculator" onsubmit="calculateForm()"> -->
+	<input id="left_input" type="text"/>
+	<select name="operators" id="operators">
+		<option value="add">+</option>
+		<option value="sub">-</option>
+		<option value="mult">*</option>
+		<option value="div">/</option>
+		<option value="mud">%</option>
+	</select>
+	<input id="right_input" type="text"/>
+	<input type="submit" value="Try me!" onclick="calculateForm()">
+<!-- </form> -->
+
+<!-- JavaScripts Starts Here -->
+
+<script>
+function calculateForm()
+	{
+		let leftInput = parseInt(document.getElementById('left_input').value);
+		let rightInput = parseInt(document.getElementById('right_input').value);
+		let leftRaw = (document.getElementById('left_input').value);
+		let rightRaw = (document.getElementById('right_input').value);
+		let operator = document.getElementById('operators').value;
+		let res;
+
+		var leftVerif = Number(leftRaw);
+		var rightVerif = Number(rightRaw);
+	
+		//if (rightInput < 0 || leftInput < 0 || Number.isNaN(leftRaw) || Number.isNaN(rightRaw) || rightRaw == "" || leftRaw == "")
+
+		if (leftRaw == "" || rightRaw == "" || isNaN(leftVerif) || isNaN(rightVerif) || leftInput < 0 || rightInput < 0)
+		{
+			alert("Error :(");
+			return ;
+		}
+	
+		if ((operator === "mud" || operator === "div") && rightInput === 0)
+		{
+			// console.log("It's over 9000!");
+			alert("It's over 9000!");
+		}
+
+		if(operator == 'add')
+		{
+			res = leftInput + rightInput;
+			console.log(res);
+		}
+		if(operator == 'sub')
+		{
+			res = leftInput - rightInput;
+			console.log(res);
+		}
+		if(operator == 'mult')
+		{
+			res = leftInput * rightInput;
+			console.log(res);
+		}
+		if(operator == 'div')
+		{
+			res = leftInput / rightInput;
+			console.log(res);
+		}
+		if(operator == 'mud')
+		{
+			res = leftInput % rightInput;
+			console.log(res);
+		}
+		alert(res);
+	}
+
+	$(document).ready(function()
+	{
+		setInterval(timer, 30000);
+		$("#submit").click(function()
+		{
+			submit();
+		})
+	});
+	function timer() {
+		alert("Please, use me...");
+	}
+</script>
+
+<!-- <script> setInterval(function(){alert("Please, use me...")}, 30000);</script> -->
+
+</body>
+</html>
