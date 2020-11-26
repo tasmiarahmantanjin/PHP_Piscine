@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+	<title>Ballon</title>
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<style>
+		#ballon {
+			height: 200px;
+			width: 200px;
+			background-color: red;
+			border-radius: 50%;
+			margin: auto;
+			margin-top: 400px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="ballon"></div>
+	<script>
+		let Ballon = $("#ballon");
+		const colors = ['red', 'green', 'blue'];
+		let i = 0;
+		let click = false;
+
+/*-------------------------Event click starts here-----------------------------*/
+
+
+Ballon.on("click", () =>
+{
+	i++;
+	if (i > 2)
+	{
+		i = 0;
+	}
+	Ballon.css("background", colors[i]);
+	if (Ballon.width() < 420)
+	{
+		Ballon.width(Ballon.width() + 10 + 'px');
+		Ballon.height(Ballon.height() + 10 + 'px');
+	}
+	else
+	{
+		Ballon.width(200 + 'px');
+		Ballon.height(200 + 'px');
+	}
+	click = true;
+})
+
+/*-------------------------Event mouseleave starts here-----------------------------*/
+
+Ballon.on("mouseleave", () =>
+{
+	if (click == false)
+	{
+		i--;
+		if (i == -1)
+		{
+			i = 2;
+		}
+		Ballon.css("background", colors[Math.abs(i)])
+		if (Ballon.width() > 200)
+		{
+			Ballon.width(Ballon.width() - 5 + 'px');
+			Ballon.height(Ballon.height() - 5 + 'px');
+		}
+	}
+		click = false;
+		})
+
+	</script>
+</body>
+</html>
