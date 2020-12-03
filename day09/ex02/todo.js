@@ -2,8 +2,8 @@
 function newPrompt()
 {
 	let addTask = prompt("Add new task in TO-DO List:");
-	// if (addTask === "")
-		// return;
+	 if (addTask === "")
+		 return;
 	newEntry(addTask);
 }
 
@@ -13,8 +13,7 @@ function newEntry(addTask)
 	let newDiv = document.createElement("div");		// create new elments
 	let newTask = document.createTextNode(addTask);	// create text nodes for new elements
 	newDiv.appendChild(newTask);					// attach newTask nodes to new elements
-//	The prepend() method inserts a set of Node objects 
-//or DOMString objects after the first child of a parent node:
+//	The prepend() method inserts a set of Node objects or DOMString objects after the first child of a paren node:
 	ft_list.prepend(newDiv);
 	newDiv.setAttribute("onclick", "deleteEntry(this)");
 }
@@ -31,4 +30,5 @@ function deleteEntry(element)
 
 /* ================================================================= */
 // SET COOOKIE //
+
 
